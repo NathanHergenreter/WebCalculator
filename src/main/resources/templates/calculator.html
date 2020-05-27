@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Community Calculator</title>
+</head>
+<body>
+	<div style="text-align:center">
+		<iframe id="calculationsFrame" src="/calculations" height="300" width="300"></iframe>
+	</div>
+	<br>
+	
+	<div style="text-align:center">
+	  <form id="calculationForm" action="/calculate" method="post" target="hiddenFrame">
+	    <input type="number" id="number0" name="number0" required>
+	    <select id="operation" name="operation" form = "calculationForm" required>
+		     <option value="+">+</option>
+		     <option value="-">-</option>
+		     <option value="x">x</option>
+		     <option value="/">/</option>
+		</select>
+	    <input type="number" id="number1" name="number1" required>
+	    <br>
+	    <br>
+	    <input type="submit" value="Calculate">
+	  </form>
+	</div>
+	
+	<iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+	
+	<script>
+		 window.setInterval("reloadTable();", 1000);
+		
+		 function reloadTable() {
+			 document.getElementById('calculationsFrame').contentWindow.location.reload();
+		 }
+ 	</script>
+</body>
+</html>
+  
